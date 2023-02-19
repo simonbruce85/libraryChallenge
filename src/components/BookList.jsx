@@ -1,14 +1,26 @@
-import React, { useState } from 'react'
-import data from '../data'
+import React, { useEffect, useState } from 'react'
 import BookCard from './BookCard'
+import { supabase } from '../client'
 
 const BookList = () => {
 
-    //[0,1,2,3,...,n-1]
-    console.log(data)
+    const [books, setBooks] = useState([]);
     const [search, seatSearch] = useState('');
+    
 
-    const filteredBooks = data.filter(book =>
+    async function fetchBooks() {
+        const { data } = await supabase.from('book').select().order('title',  { ascending: true })
+        setBooks(data)
+    }
+
+    useEffect(() => {
+        fetchBooks()
+    }, [])
+
+    
+
+
+    const filteredBooks = books.filter(book =>
         book.title.toLowerCase().includes(search.toLowerCase())
     )
 
@@ -19,7 +31,7 @@ const BookList = () => {
     return (
         <div className=' w-full min-h-screen flex justify-center'>
 
-            <div className='mt-[80px] w-[80%]  w-full h-[80%] flex flex-wrap justify-center '>
+            <div className='mt-[80px] w-[80%]   h-[80%] flex flex-wrap justify-center '>
                 <form className='flex justify-center w-full'>
                     <input
                         placeholder='Search Book By title'
@@ -29,7 +41,7 @@ const BookList = () => {
                     </input>
                 </form>
                 {filteredBooks.map((book) => {
-                    return <BookCard book={book} />
+                    return <BookCard key={book.id} book={book} />
                 })}
             </div>
         </div>

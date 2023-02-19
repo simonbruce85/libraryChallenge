@@ -13,17 +13,14 @@ const BookCard = ({ book }) => {
                 setShowDrawer={setShowDrawer}
                 book={book}
             />
-            <div className='w-[150px] md:w-[200px] min-h-[300px] h-fit m-1 md:m-2 p-2 rounded-lg hover:scale-105 duration-500 cursor-pointer' onClick={() => setShowDrawer(!showDrawer)}>
-                <div className='bg-gray-300 w-full h-[200px] md:h-[250px]'>
+            <div className='w-[250px] md:w-[250px] min-h-[300px] h-fit m-1 md:m-2 p-2 rounded-lg hover:scale-105 duration-500 cursor-pointer' onClick={() => setShowDrawer(!showDrawer)}>
+                <div className={`${book.imgUrl?"":"bg-gray-300 w-full h-[300px] md:h-[300px]"}`} >
+                <img src={book.imgUrl} className={`${book.imgUrl?" h-[300px] w-[250px] ":"hidden"}`}/>
                 </div>
                 <div>
-                    <p className='text-sm'>{book.title}</p>
+                    <p className='text-sm'><em>{book.title}</em></p>
                     <p className='text-sm'> by <strong>{book.author}</strong></p>
                     <p className='text-sm'>Quantity: {book.quantity}</p>
-                    {/* <div className='flex just'>
-                        <button className='  text-[#00BBF9] mr-2 hover:border-b border-black'>Details</button>
-                        <button className=' py-1 text-[#00BBF9]'>Check Out</button>
-                    </div> */}
                 </div>
             </div>
         </>
