@@ -31,7 +31,6 @@ const CreateBook = () => {
     async function fetchBooks() {
         const { data } = await supabase.from('book').select()
         setBooks(data)
-        console.log(data)
     }
 
     useEffect(() => {

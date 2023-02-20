@@ -41,7 +41,7 @@ const BookList = () => {
                     </input>
                 </form>
                 {filteredBooks.map((book) => {
-                    return <BookCard key={book.id} book={book} />
+                    return <BookCard key={book.id} book={book} fetchBooks={fetchBooks} />
                 })}
             </div>
         </div>

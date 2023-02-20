@@ -36,10 +36,9 @@ const CheckOut = () => {
 
   return (
     <div className='mt-[100px] w-full flex justify-center'>
-      <div className='w-[50%]'>
+      <div className='w-[80%] md:w-[50%]'>
         <div className={ "flex justify-center" } >
-          {imgUrl?<img src={imgUrl} className="object-cover h-[300px] w-[200px]" />:<div className={ "bg-gray-300 flex jusfify-center h-[200px] md:h-[250px] w-[200px]"}></div>}
-  
+          {imgUrl?<img src={imgUrl} className="object-cover h-[300px] w-[200px]" alt="book"/>:<div className={ "bg-gray-300 flex jusfify-center h-[200px] md:h-[250px] w-[200px]"}></div>}
         </div>
         <div>
           <p className='text-lg'>{title}</p>
@@ -50,17 +49,17 @@ const CheckOut = () => {
           </div>
           <p className='text-sm'>Quantity: {quantity}</p>
         </div>
-        <div className='mt-10  flex justify-center'>
-          <div className='flex flex-col w-[50%]  '>
+        <div className='mt-3 mb-3 md:mt-10  flex justify-center'>
+          <div className='flex flex-col md:w-[50%]  gap-2'>
             <p>Return By: {returnBy}</p>
-            <form className='gap-2' onSubmit={handleClick} >
-            <div className='flex'>
+            <form className='' onSubmit={handleClick} >
+            <div className='flex my-1'>
               <input className='border-2 w-full rounded-lg' placeholder='Name' value={userName} onChange={e => setUser({ ...user, userName: e.target.value })}></input>
             </div>
-            <div className='flex'>
-              <input className='border-2 w-full rounded-lg' placeholder='Email' required={true} value={email} onChange={e => setUser({ ...user, email: e.target.value })}></input>
+            <div className='flex my-1'>
+              <input className='border-2 w-full rounded-lg' placeholder='Email' type="email" required={true} value={email} onChange={e => setUser({ ...user, email: e.target.value })}></input>
             </div>
-            <div className='flex justify-center'>
+            <div className='flex justify-center my-1'>
               <button className='border w-fit px-2 py-1 rounded-lg bg-[#00BBF9]' type='submit' >Check Out</button>
             </div>
             </form>

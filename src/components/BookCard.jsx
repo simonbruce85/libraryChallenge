@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import BookDetailsDrawer from './BookDetailsDrawer';
 
-const BookCard = ({ book }) => {
+const BookCard = ({ book, fetchBooks }) => {
 
     const [showDrawer, setShowDrawer] = useState(false);
 
@@ -12,10 +12,11 @@ const BookCard = ({ book }) => {
                 showDrawer={showDrawer}
                 setShowDrawer={setShowDrawer}
                 book={book}
+                fetchBooks={fetchBooks}
             />
             <div className='w-[250px] md:w-[250px] min-h-[300px] h-fit m-1 md:m-2 p-2 rounded-lg hover:scale-105 duration-500 cursor-pointer' onClick={() => setShowDrawer(!showDrawer)}>
                 <div className={`${book.imgUrl?"":"bg-gray-300 w-full h-[300px] md:h-[300px]"}`} >
-                <img src={book.imgUrl} className={`${book.imgUrl?" h-[300px] w-[250px] ":"hidden"}`}/>
+                <img src={book.imgUrl} className={`${book.imgUrl?" h-[300px] w-[250px] ":"hidden"} `} alt="book"/>
                 </div>
                 <div>
                     <p className='text-sm'><em>{book.title}</em></p>
