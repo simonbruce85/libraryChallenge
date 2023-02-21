@@ -1,7 +1,7 @@
 import React from 'react'
 import { supabase } from '../client'
 
-const LentBookCard = ({ user, fetchUsers }) => {
+const BorrowedBookCard = ({ user, fetchUsers }) => {
 
     async function handleClick(e) {
         e.preventDefault()
@@ -45,4 +45,4 @@ const LentBookCard = ({ user, fetchUsers }) => {
     )
 }
 
-export default LentBookCard
+export default BorrowedBookCard

@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import BookList from './components/BookList';
 import CheckOut from './components/CheckOut';
 import CreateBook from './components/CreateBook';
-import LentBooks from './components/LentBooks';
+import BorrowedBooks from './components/BorrowedBooks';
 
 function App() {
   return (
@@ -27,8 +27,8 @@ function App() {
       >
       </Route>
       <Route
-      path='/lentBooks'
-      element={<LentBooks/>}
+      path='/borrowedBooks'
+      element={<BorrowedBooks/>}
       >
       </Route>
     </Routes>

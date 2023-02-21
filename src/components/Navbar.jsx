@@ -13,16 +13,16 @@ const Navbar = () => {
                 }}>Logo</p>
                 <div className='flex grow justify-center '>
                 </div>
-                <div className='flex gap-2'>
-                    <p className='hover:border-b-2 border-black py-1 cursor-pointer' onClick={() => {
+                <div className='flex gap-2  p-1'>
+                    <p className='hover:border-b border-black py-1 cursor-pointer' onClick={() => {
                         navigate("/")
                     }}>Home</p>
-                    <p className='hover:border-b-2 border-black py-1 cursor-pointer' onClick={() => {
+                    <p className='hover:border-b border-black py-1 cursor-pointer' onClick={() => {
                         navigate("/createBook")
                     }}>Add</p>
-                    <p className='hover:border-b-2 border-black py-1 cursor-pointer' onClick={() => {
-                        navigate("/lentBooks")
-                    }}>Lent</p>
+                    <p className='hover:border-b border-black py-1 cursor-pointer' onClick={() => {
+                        navigate("/borrowedBooks")
+                    }}>Borrowed</p>
                 </div>
             </div>
         </div>

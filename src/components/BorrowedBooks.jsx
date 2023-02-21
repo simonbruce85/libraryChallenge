@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { supabase } from '../client'
-import LentBookCard from './LentBookCard';
+import BorrowedBookCard from './BorrowedBookCard';
 
-const LentBooks = () => {
+const BorrowedBooks = () => {
 
     const [users, setUsers] = useState([]);
     
@@ -22,7 +22,7 @@ const LentBooks = () => {
         <div className='flex flex-col w-[80%]'>
             {users.map((user)=>{
                 return (
-                <LentBookCard key={user.id} user={user} fetchUsers={fetchUsers}/>
+                <BorrowedBookCard key={user.id} user={user} fetchUsers={fetchUsers}/>
                     )
             })}
         </div>
@@ -30,4 +30,4 @@ const LentBooks = () => {
   )
 }
 
-export default LentBooks
+export default BorrowedBooks
